@@ -1,14 +1,14 @@
 %%
 clear;clc;
 
-PopNum = 100; %ÖÖÈº¸öÌåÊı
-Minimum = 0; %ËÑË÷ÏÂ½ç
-Maximum = 31; %ËÑË÷ÉÏ½ç
-Iternum = 100; %×î´óµü´ú´ÎÊı
-Length = 23; %precise:1e-5 %ÊıÂë³¤¶È
-P_select = 0.7; %Ñ¡ÔñÂÊ
-P_cross = 0.7; %ÔÓ½»ÂÊ
-P_variation = 0.008; %±äÒìÂÊ
+PopNum = 100; %ç§ç¾¤ä¸ªä½“æ•°
+Minimum = 0; %æœç´¢ä¸‹ç•Œ
+Maximum = 31; %æœç´¢ä¸Šç•Œ
+Iternum = 100; %æœ€å¤§è¿­ä»£æ¬¡æ•°
+Length = 23; %precise:1e-5 %æ•°ç é•¿åº¦
+P_select = 0.7; %é€‰æ‹©ç‡
+P_cross = 0.7; %æ‚äº¤ç‡
+P_variation = 0.008; %å˜å¼‚ç‡
 
 
 population = InitPopulation(PopNum, Minimum, Maximum);
@@ -35,6 +35,7 @@ for epoch = 1:Iternum
     pool = Select(population , PopNum , evaluation);
     binpool = Encode(pool , Length , Minimum , Maximum);
     newpop = Cross(binpool, PopNum , P_cross , Length);
+    newpop = Variate(newpop, P_variation);
     newpop = Decode(newpop, Minimum , Maximum , Length);
     population = newpop;
     
