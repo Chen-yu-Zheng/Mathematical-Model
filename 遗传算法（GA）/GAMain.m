@@ -6,7 +6,6 @@ Minimum = 0; %搜索下界
 Maximum = 31; %搜索上界
 Iternum = 100; %最大迭代次数
 Length = 23; %precise:1e-5 %数码长度
-P_select = 0.7; %选择率
 P_cross = 0.7; %杂交率
 P_variation = 0.008; %变异率
 
